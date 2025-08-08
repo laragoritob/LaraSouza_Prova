@@ -3,7 +3,7 @@
     require_once 'conexao.php';
 
     // GARANTE QUE O USUÁRIO ESTEJA LOGADO
-    if (isset($_SESSION['id_usuario'])) {
+    if (!isset($_SESSION['id_usuario'])) {
         echo "<script>alert('Acesso Negado!');window.location.href='login.php';</script>";
         exit();
     }
@@ -16,9 +16,9 @@
         // VERIFICA SE AS SENHAS COINCIDEM
         if ($nova_senha !== $confirmar_senha) {
             echo "<script>alert('As senhas não coincidem!');</script>";
-        } elseif (strlength($nova_senha) < 8) {
+        } elseif (strlen($nova_senha) < 8) {
             echo "<script>alert('A senha deve ter pelo menos 8 caractéres!');</script>";
-        } elseif (strlength($nova_senha) === "temp123") {
+        } elseif ($nova_senha === "temp123") {
             echo "<script>alert('Escolha uma senha diferente de temporária!');</script>";
         } else {
             $senha_hash = password_hash($nova_senha, PASSWORD_DEFAULT);
@@ -61,7 +61,7 @@
         <input type="password" id="confirmar_senha" name="confirmar_senha" required />
 
         <label>
-            <input type="checkbox" onclick="mostrarSenha()"> Mostrar Senha />
+            <input type="checkbox" onclick="mostrarSenha()"> Mostrar Senha
         </label>
 
         <button type="submit"> Salvar nova senha </button>
