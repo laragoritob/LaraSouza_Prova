@@ -19,12 +19,12 @@
             $sql = "SELECT * FROM usuario WHERE id_usuario = :busca ORDER BY nome ASC";
 
             $stmt = $pdo->prepare($sql);
-            $stmt->bind_param(":busca", $busca, PDO::PARAM_INT);
+            $stmt->bindParam(":busca", $busca, PDO::PARAM_INT);
         } else {
-            $sql = "SELECT * FROM usuarios WHERE nome LIKE :busca_nome ORDER BY nome ASC";
+            $sql = "SELECT * FROM usuario WHERE nome LIKE :busca_nome ORDER BY nome ASC";
 
             $stmt = $pdo->prepare($sql);
-            $stmt->bind_param(":busca_nome", "%$busca%", PDO::PARAM_STR);
+            $stmt->bindValue(':busca_nome', "$busca%", PDO::PARAM_STR);
         }
     } else {
         $sql = "SELECT * FROM usuario ORDER BY nome ASC";
@@ -49,10 +49,11 @@
     <form action="buscar_usuario.php" method="POST">
         <label for="busca"> Digite o ID ou NOME do Usuário: </label>
         <input type="text" name="busca" id="busca" required>
+        <button type="submit"> Pesquisar </button>
     </form>
 
     <?php if (!empty($usuarios)) { ?>
-        <table>
+        <table border=2 align="center">
             <tr>
                 <th> ID </th>
                 <th> Nome </th>
@@ -62,13 +63,24 @@
             </tr>
 
             <?php foreach ($usuarios as $usuario) { ?>
-
             <tr>
                 <td> <?= htmlspecialchars($usuario['id_usuario']) ?> </td>
                 <td> <?= htmlspecialchars($usuario['nome']) ?> </td>
                 <td> <?= htmlspecialchars($usuario['email']) ?> </td>
                 <td> <?= htmlspecialchars($usuario['id_perfil']) ?> </td>
+                <td> 
+                    <a href="alterar_usuario.php?id=<?= htmlspecialchars($usuario['id_usuario']) ?>"> Alterar </a>
+                    <a href="excluir_usuario.php?id=<?= htmlspecialchars($usuario['id_usuario']) ?>" onclick="return confirm('Tem certeza que deseja excluir este usuário?')"> Excluir </a>
+                </td>
             </tr>
+            <?php } ?>
         </table>
+
+    <?php } else { ?>
+        <p> Nenhum usuário encontrado. </p>
+    <?php } ?>
+
+    <br>
+    <a href="principal.php"> VOLTAR </a>
 </body>
 </html>
