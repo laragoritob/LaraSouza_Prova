@@ -4,7 +4,7 @@
 
     // VERIFICA SE O USUÁRIO TEM PERMISSÃO DE ADM OU SECRETÁRIA
     if ($_SESSION['perfil'] !=1 && $_SESSION['perfil'] !=2) {
-        echo "<script>alert('Acesso Negado!'); window.location.href='index.php';</script>";
+        echo "<script>alert('Acesso Negado!'); window.location.href='principal.php';</script>";
         exit();
     }
 
@@ -43,6 +43,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Buscar Usuário </title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        tr:nth-child(even) td {
+            background-color:rgb(255, 255, 255); 
+        }
+
+        th, td {
+            padding: 12px;
+        }
+
+        th {
+            background-color:rgb(0, 0, 0); 
+            color: white;
+        }
+
+        td {  
+            background-color:rgb(221, 221, 221);
+        }
+
+        table {
+            width: 70%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .voltar {
+            width: 80%;
+            padding: 10px 100px;
+            background-color: #007bff; /* Azul bonito */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }   
+
+        .voltar:hover {
+            background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+        }
+</style>
 </head>
 <body>
     <h2> Lista de Usuários </h2>
@@ -53,7 +99,7 @@
     </form>
 
     <?php if (!empty($usuarios)) { ?>
-        <table border=2 align="center">
+        <table>
             <tr>
                 <th> ID </th>
                 <th> Nome </th>
@@ -81,6 +127,6 @@
     <?php } ?>
 
     <br>
-    <a href="principal.php"> VOLTAR </a>
+    <a class="voltar" href="principal.php"> Voltar </a>
 </body>
 </html>
