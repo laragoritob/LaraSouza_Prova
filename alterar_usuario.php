@@ -4,7 +4,7 @@
 
     // VERIFICA SE O USUÁRIO TEM PERMISSÃO DE ADM
     if ($_SESSION['perfil'] !=1) {
-        echo "<script>alert('Acesso Negado!'); window.location.href='index.php';</script>";
+        echo "<script>alert('Acesso Negado!');window.location.href='principal.php';</script>";
         exit();
     }
 
@@ -32,7 +32,6 @@
             // SE O USUÁRIO NAO FOR ENCONTRADO, EXIBE UM ALERTA
             if (!$usuario) {
                 echo "<script>alert('Usuário não encontrado!');</script>";
-                exit();
             }
         }
     }
@@ -49,6 +48,25 @@
 
     <!-- CERTIFIQUE-SE DE QUE O JAVASCRIPT ESTÁ SENDO CARREGADO CORRETAMENTE -->
     <script src="scripts.js"></script>
+
+    <style>
+        .voltar {
+                width: 70%;
+                padding: 10px 100px;
+                background-color: #007bff; /* Azul bonito */
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: 0.3s;
+                text-decoration: none;
+            }   
+
+            .voltar:hover {
+                background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+            }
+    </style>
 </head>
 <body>
     <h2> Alterar Usuário </h2>
@@ -76,13 +94,24 @@
 
             <label for="id_perfil"> Perfil: </label>
             <select id="id_perfil" name="id_perfil"> 
-                <option value="1"><?= $usuario['id_perfil'] == 1 ? 'select' : '' ?> Administrador </option>
-                <option value="1"><?= $usuario['id_perfil'] == 2 ? 'select' : '' ?> Secretária </option>
-                <option value="1"><?= $usuario['id_perfil'] == 3 ? 'select' : '' ?> Almoxarife </option>
-                <option value="1"><?= $usuario['id_perfil'] == 4 ? 'select' : '' ?> Cliente </option>
+                <option value="1"<?= $usuario['id_perfil'] == 1 ? 'select' : '' ?>> Administrador </option>
+                <option value="2"<?= $usuario['id_perfil'] == 2 ? 'select' : '' ?>> Secretária </option>
+                <option value="3"<?= $usuario['id_perfil'] == 3 ? 'select' : '' ?>> Almoxarife </option>
+                <option value="4"<?= $usuario['id_perfil'] == 4 ? 'select' : '' ?>> Cliente </option>
             </select>
+
+            <!-- SE O USUÁRIO LOGADO FOR ADM, EXIBIR OPÇÃO DE ALTERAR SENHA -->
+            <?php if ($_SESSION['perfil'] == 1) { ?>
+                <label for="nova_senha"> Nova Senha: </label>
+                <input type="password" id="nova_senha" name="nova_senha">
+            <?php } ?>
+
+            <button type="submit"> Alterar </button>
+            <button type="reset"> Cancelar </button>
         </form>
 
     <?php } ?>
+
+    <a class="voltar" href="principal.php"> Voltar </a>
 </body>
 </html>
