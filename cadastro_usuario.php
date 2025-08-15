@@ -37,6 +37,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Cadastrar Usuário </title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .voltar {
+                width: 70%;
+                padding: 10px 100px;
+                background-color: #007bff; /* Azul bonito */
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: 0.3s;
+                text-decoration: none;
+            }   
+
+            .voltar:hover {
+                background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+            }
+    </style>
 </head>
 <body>
     <h2> Cadastrar Usuário </h2>
@@ -62,6 +80,6 @@
         <button type="reset"> Cancelar </button>
     </form>
 
-    <a href="principal.php"> Voltar </a>
+    <a class="voltar" href="principal.php"> Voltar </a>
 </body>
 </html>
