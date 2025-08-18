@@ -54,6 +54,14 @@
     <title> Painel Principal </title>
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js"></script>
+    <style>
+        footer {
+                background-color: #333;
+                color: white;
+                padding: 15px;
+                margin-top: 300px;
+            }
+    </style>
 </head>
 <body>
     <header>
@@ -85,4 +93,7 @@
         </ul>
     </nav>
 </body>
+<footer>
+    Lara Gorito Barbosa de Souza
+</footer>
 </html>
