@@ -42,6 +42,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Recuperar Senha </title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        footer {
+                background-color: #333;
+                color: white;
+                padding: 15px;
+                margin-top: 315px;
+            }
+    </style>
 </head>
 <body>
     <h2> Recuperar Senha </h2>
@@ -53,4 +61,7 @@
         <button type="submit"> Enviar a senha temporária</button>
     </form>
 </body>
+<footer>
+    Lara Gorito Barbosa de Souza
+</footer>
 </html>
