@@ -44,6 +44,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Login </title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        footer {
+                background-color: #333;
+                color: white;
+                padding: 15px;
+                margin-top: 175px;
+            }
+
+            .botao {
+                width: 70%;
+                padding: 10px 50px;
+                background-color:rgb(255, 65, 65); /* Azul bonito */
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: 0.3s;
+                text-decoration: none;
+            }   
+
+            .botao:hover {
+                background-color:rgb(206, 19, 19); /* Azul mais escuro ao passar o mouse */
+            }
+    </style>
 </head>
 <body>
     <h2> Login </h2>
@@ -58,6 +83,9 @@
         <button type="submit"> Entrar </button>
     </form>
 
-    <p><a href="recuperar_senha.php"> Esqueci a minha senha </a></p>
+    <p><a class="botao" href="recuperar_senha.php"> Esqueci a minha senha </a></p>
 </body>
+<footer>
+    Lara Gorito Barbosa de Souza
+</footer>
 </html>
