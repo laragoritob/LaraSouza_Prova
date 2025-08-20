@@ -149,12 +149,20 @@
     <script>
         document.getElementById("formCadastro").addEventListener("submit", function(event) {
             let nome = document.getElementById("nome").value.trim();
+            let senha = document.getElementById("senha").value;
 
             // Regex: aceita apenas letras (maiúsculas e minúsculas) e espaços
             let nomeRegex = /^[A-Za-zÀ-ÿ\s]+$/;
 
             if (!nomeRegex.test(nome)) {
                 alert("O nome não pode conter números ou caracteres especiais!");
+                event.preventDefault();
+                return;
+            }
+
+            // Validação da senha: mínimo de 8 caracteres
+            if (senha.length < 8) {
+                alert("A senha deve ter no mínimo 8 caracteres!");
                 event.preventDefault();
                 return;
             }
