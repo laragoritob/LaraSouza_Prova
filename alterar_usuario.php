@@ -180,12 +180,20 @@
     <script>
         document.getElementById("formProcessar").addEventListener("submit", function(event) {
             let nome = document.getElementById("nome").value.trim();
+            let senha = document.getElementById("nova_senha").value;
 
             // Regex: aceita apenas letras (maiúsculas e minúsculas) e espaços
             let nomeRegex = /^[A-Za-zÀ-ÿ\s]+$/;
 
             if (!nomeRegex.test(nome)) {
                 alert("O nome não pode conter números ou caracteres especiais!");
+                event.preventDefault();
+                return;
+            }
+
+            // Validação da senha: somente valida se o campo não estiver vazio
+            if (senha !== "" && senha.length < 8) {
+                alert("A senha deve ter no mínimo 8 caracteres!");
                 event.preventDefault();
                 return;
             }
