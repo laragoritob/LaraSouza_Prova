@@ -153,7 +153,7 @@
             <input type="text" id="nome" name="nome" value="<?= htmlspecialchars($usuario['nome']) ?>" required>
 
             <label for="email"> E-mail: </label>
-            <input type="email" id="email"name="email" value="<?= htmlspecialchars($usuario['email']) ?>" required>
+            <input type="email" id="email" name="email" value="<?= htmlspecialchars($usuario['email']) ?>" required>
 
             <label for="id_perfil"> Perfil: </label>
             <select id="id_perfil" name="id_perfil"> 
