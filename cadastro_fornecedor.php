@@ -5,7 +5,8 @@
     // VERIFICA SE O USUÁRIO TEM PERMISSÃO
     // SUPONDO QUE O PERFIL 1 SEJA O ADMINISTRADOR
     if ($_SESSION['perfil'] != 1 && $_SESSION['perfil'] != 3) {
-        echo "Acesso negado!";
+        echo "<script>alert('Acesso Negado!');window.location.href='principal.php';</script>";
+        exit();
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -178,6 +179,7 @@
         document.getElementById("formCadastro").addEventListener("submit", function(event) {
             let nome = document.getElementById("nome_fornecedor").value.trim();
             let contato = document.getElementById("contato").value.trim();
+            let telefone = document.getElementById("telefone").value.trim();
 
             // Regex: aceita apenas letras (maiúsculas e minúsculas) e espaços
             let nomeRegex = /^[A-Za-zÀ-ÿ\s]+$/;
@@ -203,6 +205,12 @@
 
             if (!contatoRegex.test(contato)) {
                 alert("O contato não pode conter números ou caracteres especiais!");
+                event.preventDefault();
+                return;
+            }
+
+            if (telefone.length !== 15) {
+                alert('Telefone inválido!');
                 event.preventDefault();
                 return;
             }
