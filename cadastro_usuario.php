@@ -5,7 +5,8 @@
     // VERIFICA SE O USUÁRIO TEM PERMISSÃO
     // SUPONDO QUE O PERFIL 1 SEJA O ADMINISTRADOR
     if ($_SESSION['perfil'] != 1) {
-        echo "Acesso negado!";
+        echo "<script>alert('Acesso Negado!');window.location.href='principal.php';</script>";
+        exit();
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
