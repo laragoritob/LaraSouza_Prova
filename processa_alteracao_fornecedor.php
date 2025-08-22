@@ -16,7 +16,7 @@
         $email = $_POST['email'];
         $contato = $_POST['contato'];
 
-        // ATUALIZA OS DADOS DO USUÁRIO
+        // ATUALIZA OS DADOS DO FORNECEDOR
             $sql = "UPDATE fornecedor SET nome_fornecedor = :nome_fornecedor, endereco = :endereco, telefone = :telefone, email = :email, contato = :contato
                      WHERE id_fornecedor = :id";
 
