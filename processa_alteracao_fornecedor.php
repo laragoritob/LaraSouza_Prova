@@ -31,9 +31,9 @@
         $stmt->bindParam(':id', $id_fornecedor);
 
         if ($stmt->execute()) {
-            echo "<script>alert('Usuário atualizado com sucesso!'); window.location.href='buscar_fornecedor.php';</script>";
+            echo "<script>alert('Fornecedor atualizado com sucesso!'); window.location.href='buscar_fornecedor.php';</script>";
         } else {
-            echo "<script>alert('Erro ao atualizar usuário.'); window.location.href='alterar_fornecedor.php?id=$id_fornecedor';</script>";
+            echo "<script>alert('Erro ao atualizar fornecedor.'); window.location.href='alterar_fornecedor.php?id=$id_fornecedor';</script>";
         }
     }
 ?>
