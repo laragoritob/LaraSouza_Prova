@@ -11,17 +11,17 @@
     // INICIALIZA VARIÁVEIS
     $fornecedor = [];
 
-    // BUSCA TODODS OS USUÁRIOS CADASTRADOS EM ORDEM ALFABÉTICA
+    // BUSCA TODODS OS FORNECEDORES CADASTRADOS EM ORDEM ALFABÉTICA
     $sql = "SELECT * FROM fornecedor ORDER BY nome_fornecedor ASC";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $fornecedores = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // SE UM ID FOR PASSADO VIA GET, EXCLUIR O USUÁRIO
+    // SE UM ID FOR PASSADO VIA GET, EXCLUIR O FORNECEDOR
     if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         $id_fornecedor = $_GET['id'];
 
-        // EXCLUI O USUÁRIO DO BANCO DE DADOS
+        // EXCLUI O FORNECEDOR DO BANCO DE DADOS
         $sql = "DELETE FROM fornecedor WHERE id_fornecedor = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $id_fornecedor);
