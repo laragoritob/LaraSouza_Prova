@@ -145,7 +145,7 @@
 
     <?php if ($fornecedor) { ?>
 
-        <!-- FORMULÁRIO PARA ALTERAR USUÁRIO -->
+        <!-- FORMULÁRIO PARA ALTERAR FORNECEDOR -->
          <form id="formProcessar" action="processa_alteracao_fornecedor.php" method="POST">
             <input type="hidden" name="id_fornecedor" value="<?= htmlspecialchars($fornecedor['id_fornecedor']) ?>">
 
